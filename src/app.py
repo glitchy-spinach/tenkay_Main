@@ -269,7 +269,7 @@ def main():
         # Both Document Link and AI Summary Link render as clickable URLs.
         st.dataframe(
             df, 
-            use_container_width=True,
+            width="stretch",
             column_config={
                 "Document Link": st.column_config.LinkColumn("Filing Document (Click to Open)"),
                 "AI Summary Link": st.column_config.LinkColumn(
@@ -307,7 +307,7 @@ def main():
         
         with col_btn:
             st.write("")  # Vertical spacing
-            generate_clicked = st.button("✨ Generate AI Summary", type="primary", use_container_width=True)
+            generate_clicked = st.button("✨ Generate AI Summary", type="primary", width='stretch')
 
         summary_cache_key = f"summary_{chosen_filing['Accession Number']}"
         should_generate = generate_clicked or (query_accession == chosen_filing["Accession Number"])
